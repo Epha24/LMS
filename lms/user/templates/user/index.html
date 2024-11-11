@@ -1,0 +1,6 @@
+{% extends 'user/base.html' %}
+{% block content %}
+<div class="card" style="border-radius:0px;">
+  <div class="card-body" style="border-left : 10px solid orange;"><h5 style="font-family:roman; font-weight:600;">Welcome, <span class="text-danger">{{ user.username | capfirst }} ({{ username | capfirst }})</span>, To FTVETI Library Management System</h5></div>
+</div>
+{% endblock content %}

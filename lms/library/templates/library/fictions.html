@@ -1,0 +1,28 @@
+{% extends 'library/base.html' %}
+{% load static %}
+{% block ban %}
+    <h2>FICTIONS</h2>
+    <h5><a href="{% url 'library-index' %}">HOME</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="{% url 'e-resources' %}">E-RESOURCES</a>
+         <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#">FICTIONS</a></h5>
+{% endblock ban %}
+
+{% block econtent %}
+<h4 class="mb-5"><strong>FICTION MATERIALS</strong></h4>
+<hr style="color:#345eeb;">
+<div class="row">
+{% for list in book %}
+<div class="col-lg-6 col-md-12 mb-4">
+    <div class="card">
+    <div class="card-body" style="text-align: left;">
+        <h5 class="card-title">{{ list.title }}</h5>
+        <p class="card-text">
+            Author : {{ list.author }} <br>
+            Edition : {{ list.edition }} <br>
+        </p>
+        <a href="{% url 'library-login' %}" class="btn btn-primary" data-mdb-ripple-init>Download</a>
+    </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock econtent%}

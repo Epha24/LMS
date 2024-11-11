@@ -1,0 +1,51 @@
+{% extends 'librarian/base.html' %}
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <!-- /.col -->
+                    <div class="col-md-12">
+            {% if message == True %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <center><strong>One Feedback Deleted Successfully!</strong></center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {%  endif %}
+
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Feedbacks</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Email</th>
+                      <th>Message</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in feedba %}
+                    <tr>
+                      <td>{{ item.fname }} {{ item.lname }}</td>
+                      <td>{{ item.email }}</td>
+                      <td>{{ item.message }}</td>
+                      <td><a href="/librarian/delete_feedback/{{ item.id }}" onclick="return confirm('Are you sure you want to delete selected feedback?')"><i class="fa fa-trash" style="color : red;"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </section>
+{% endblock content %}

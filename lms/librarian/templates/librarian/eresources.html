@@ -1,0 +1,116 @@
+{% extends 'librarian/base.html' %}
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="{% url 'manage-eresources' %}" class="btn btn-primary btn-block mb-3"><i class="fa fa-plus"></i> Add Book</a>
+  
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Manage Books</h3>
+  
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item act2">
+                    <a href="{% url 'manage-eresources' %}" class="nav-link act">
+                      <i class="fas fa-plus"></i> Add Books
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'update-eresources' %}" class="nav-link">
+                      <i class="fa fa-edit"></i> Update Books
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            {% if msg == True %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <center><strong>One book added successfully</strong></center>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% elif msg2 == True %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <center><strong>ISBN already Exists</strong></center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {%  endif %}
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title">Add New Book</h3>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}      
+                    <div class="form-row">
+                        <input type="hidden"  name="id" value="{{ info.id }}">
+                        <div class="form-group col-sm-6">
+                            <label for="labelfname">ISBN</label>
+                            <input type="text" id="labelfname" name="isbn" placeholder="Enter UserID" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelfname">Book</label>
+                            <input type="file" id="labelfname" name="book" title="Browse Book" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labellname">Title</label>
+                            <input type="text" id="labellname" name="title" placeholder="Enter Book Title" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelemail">Author</label>
+                            <input type="text" id="labelemail" name="author" placeholder="Enter Book Author" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelusername">Publisher</label>
+                            <input type="text" id="labelusername" name="publisher" placeholder="Enter Publisher" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelpassword">Published Date</label>
+                            <input type="date" id="labelpassword" name="pdate" placeholder="Enter pablished date" class="form-control" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelconpass">Genre</label>
+                            <input type="text" id="labelconpass" name="genre" placeholder="Enter Book Genre" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelconpass">Language</label>
+                            <input type="text" id="labelconpass" name="language" placeholder="Enter Book Language" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="labelconpass">Edition</label>
+                            <input type="text" id="labelconpass" name="edition" placeholder="Enter Book Edition" class="form-control">
+                        </div>
+                       
+                    </div>
+                    <input type="submit" name="save" value="Save" class="btn btn-danger">
+                    </form> 
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer p-0">
+                
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+{% endblock content %}

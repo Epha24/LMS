@@ -1,0 +1,26 @@
+@media (min-width: 992px) {
+    #intro {
+      margin-top: -58.59px;
+      height: 50vh !important;
+    }
+  }
+
+  .navbar .nav-link {
+    color: #fff !important;
+  }
+
+  #banner a{
+    text-decoration: none;
+    color:whitesmoke;
+    font-size: 15px;
+  }
+
+  #banner .fa-angle-double-right {
+    font-size: 14px;
+  }
+
+  #register input[type=text], #register input[type=password], #contact input[type=text], #contact input[type=password], #contact input[type=email]{
+    border: none;
+    border-bottom: 1px solid #bfb6b6;
+    border-radius: 0px;
+  }

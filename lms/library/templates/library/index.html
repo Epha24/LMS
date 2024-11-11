@@ -1,0 +1,102 @@
+{% extends 'library/base.html' %}
+{% load static %}
+{% block ban %}
+    <h1 class="mb-3" style="margin-top : 40px;">FTVETI LIBRARY MANAGEMENT SYSTEM</h1>
+    <h5 class="mb-4">Access Unlimited Resources Here!!</h5>
+    <a class="btn btn-outline-light btn-lg m-2" data-mdb-ripple-init href="{% url 'library-contact' %}" role="button"
+      rel="nofollow">Contact Us</a>
+    <a class="btn btn-outline-light btn-lg m-2" data-mdb-ripple-init href="{% url 'library-register' %}"
+      role="button">Register</a>
+{% endblock ban %}
+{% block about %}
+        <div class="row">
+            <div class="col-md-6 gx-5 mb-4">
+            <div class="bg-image hover-overlay shadow-2-strong" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/library.jpg' %}" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            </div>
+        <div class="col-md-6 gx-5 mb-4">
+        <h4><strong>Federal TVETI Institute</strong></h4>
+        <p class="text-muted" align="justify">
+        Change is unstoppable. Nationwide change is bold here. Modernizing training methods 
+        by using the more modern technological means has been a choice for us. Having used
+        fast responsive leadership style and taking the institute far distant beyond training,
+            we make skills gained here as ways in changing life of oneself and others.
+        <br>
+        Skills’ training to teachers or industry technicians is a means to simplify way of life.
+        Skillful ones can bake their bread shortly than others. Skills gained from TVT Institute
+            in short or long term training has been designed to change the life of many inside Ethiopia
+            at large and also beyond that. We are working to be example for many other TVET institutes
+            in Ethiopia and Africa in short time. <br>
+            We are working to be example for many other TVET institutes in Ethiopia and Africa in short time.
+            We are not the only change makers.We work with many other regional, national and international
+            organizations to help change the life of many in Ethiopia and beyond.
+        </p>
+        <a href="{% url 'library-about' %}" class="btn btn-dark" style="border-radius : 0px;">READ MORE <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+        </div>
+        </div>
+{% endblock about %}
+
+{% block econtent %}
+<hr class="my-5" />
+        <h4 class="mb-5"><strong>Access Our 100000<sup>+</sup> E-resources</strong></h4>
+
+        <div class="row">
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/pdf.jpg' %}" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Fictions</h5>
+                <p class="card-text">
+                    Access our 2000+ free and pro Fictions.
+                </p>
+                <a href="{% url 'fictions' %}" class="btn btn-primary" data-mdb-ripple-init>Read More</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/videos.jpg' %}" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Academics</h5>
+                <p class="card-text">
+                    Access our 1000+ academic materials.
+                </p>
+                <a href="{% url 'academic' %}" class="btn btn-primary" data-mdb-ripple-init>Read More</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/audios.jpg' %}" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Science Fictions</h5>
+                <p class="card-text">
+                    Access our 1000+ science fictions.
+                </p>
+                <a href="{% url 'scifi' %}" class="btn btn-primary" data-mdb-ripple-init>Read More</a>
+            </div>
+            </div>
+        </div>
+        </div>
+{% endblock econtent %}

@@ -1,0 +1,65 @@
+{% extends 'library/base.html' %}
+{% block ban %}
+    <h2>MEMBERSHIP REGISTRATION</h2>
+    <h5><a href="{% url 'library-index' %}">HOME</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#">REGISTER</a></h5>
+{% endblock ban %}
+
+{% block register %}
+<h4 class="mb-5 text-center">
+    <strong>Membership Registration</strong>
+  </h4>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" action="" id="register">
+        {% csrf_token %}
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        {% if message == True %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style='border-radius : 0px;'>
+            <center><strong> Account created successfully!</strong></center>
+          </div>
+        {% elif message2 == True %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style='border-radius : 0px;'>
+          <center><strong> Password do not match!</strong></center>
+        </div>
+        {% elif exist == True %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style='border-radius : 0px;'>
+          <center><strong> User already exists</strong></center>
+        </div>
+        {% endif %}
+        <div class="row mb-4">
+          <div class="form-group col-sm-6">
+            <div class="form-outline" data-mdb-input-init>
+              <input type="text" id="form3Example1" name="userID" class="form-control" />
+              <label class="form-label" for="form3Example1" >User ID</label>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <div class="form-outline" data-mdb-input-init>
+              <input type="text" id="form3Example2" name="username" class="form-control" />
+              <label class="form-label" for="form3Example2">Username</label>
+            </div>
+          </div>
+        <!-- Email input -->
+            <div class="form-group col-sm-6 mt-3">
+                <div class="form-outline mb-4" data-mdb-input-init>
+                <input type="password" id="form3Example3" name="password" class="form-control" />
+                <label class="form-label" for="form3Example3">Password</label>
+                </div>
+            </div>
+        <!-- Password input -->
+            <div class="form-group col-sm-6 mt-3">
+                <div class="form-outline mb-4" data-mdb-input-init>
+                <input type="password" id="form3Example4" name="confpassword" class="form-control" />
+                <label class="form-label" for="form3Example4">Confirm Password</label>
+                </div>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
+          Sign up
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock register %}

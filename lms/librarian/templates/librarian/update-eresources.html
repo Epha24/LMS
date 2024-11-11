@@ -1,0 +1,68 @@
+{% extends 'librarian/base.html' %}
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <!-- /.col -->
+                    <div class="col-md-12">
+            {% if message == True %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <center><strong>One book added successfully</strong></center>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% elif delete_msg == True %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <center><strong>One Book Deleted Successfully!</strong></center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {%  endif %}
+
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Books</h3>
+                  <a href="{% url 'manage-eresources' %}" class="float-sm-right" title="Add New Book"><i class="fa fa-plus"></i></a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>ISBN</th>
+                      <th>Author</th>
+                      <th>Publisher</th>
+                      <th>Published Date</th>
+                      <th>Genre</th>
+                      <th>Edition</th>
+                      <th>Langiage</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in resources %}
+                    <tr>
+                      <td>{{ item.ISBN }}</td>
+                      <td>{{ item.author }}
+                      </td>
+                      <td>{{ item.publisher }}</td>
+                      <td>{{ item.pub_date }}</td>
+                      <td>{{ item.genre }}</td>
+                      <td>{{ item.edition }}</td>
+                      <td>{{ item.language }}</td>
+                      <td><a href="/librarian/delete_book/{{ item.id }}" onclick="return confirm('Are you sure you want to delete selected book?')"><i class="fa fa-trash" style="color : red;"></i></a> | <a href="/librarian/update_single_book/{{ item.id }}"><i class="fa fa-edit" style="color : success;"></i></a>| <a href="{% url 'file_download' item.id %}"><i class="fa fa-download" style="color : success;"></i></a> </td>
+                    </tr>
+                    {% endfor %}
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+      </section>
+{% endblock content %}

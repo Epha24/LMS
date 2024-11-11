@@ -1,0 +1,102 @@
+{% extends 'librarian/base.html' %}
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="{% url 'librarian-users' %}" class="btn btn-primary btn-block mb-3"><i class="fa fa-plus"></i> Add User</a>
+  
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Manage Users</h3>
+  
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <ul class="nav nav-pills flex-column">
+                  <li class="nav-item">
+                    <a href="{% url 'librarian-users' %}" class="nav-link">
+                      <i class="fas fa-plus"></i> Add User
+                    </a>
+                  </li>
+                  <li class="nav-item act2">
+                    <a href="#" class="nav-link act">
+                      <i class="fa fa-edit"></i> Update User
+                    </a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a href="{% url 'import-students-id' %}" class="nav-link">
+                      <i class="fas fa-file-import"></i> Import User ID
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            {% if message == True %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <center><strong>One user added successfully</strong></center>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% elif delete_msg == True %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <center><strong>One User Deleted Successfully!</strong></center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% elif import_msg == True %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <center><strong>Student ID Imported Successfully!</strong></center>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {%  endif %}
+
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Users</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>UserID</th>
+                      <th>Full Name</th>
+                      <th>Email</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in customers %}
+                    <tr>
+                      <td>{{ user.uID }}</td>
+                      <td>{{ user.first_name }} {{ user.last_name }}
+                      </td>
+                      <td>{{ user.email }}</td>
+                      <td><a href="/librarian/delete_user/{{ user.id }}" onclick="return confirm('Are you sure you want to delete selected user?')"><i class="fa fa-trash" style="color : red;"></i></a> | <a href="/librarian/customer_info/{{ user.id }}"><i class="fa fa-edit" style="color : success;"></i></a> </td>
+                    </tr>
+                    {% endfor %}
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+{% endblock content %}

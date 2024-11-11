@@ -1,0 +1,46 @@
+{% extends 'library/base.html' %}
+{% load static %}
+{% block ban %}
+    <h2>ABOUT US</h2>
+    <h5><a href="{% url 'library-index' %}">HOME</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#">ABOUT US</a></h5>
+{% endblock ban %}
+
+{% block about %}
+        <div class="row">
+            <div class="col-md-6 gx-5 mb-4">
+            <div class="bg-image hover-overlay shadow-2-strong" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/library.jpg' %}" class="img-fluid" />
+                <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+            </div>
+            </div>
+        <div class="col-md-6 gx-5 mb-4">
+        <h4><strong>Federal TVETI Institute</strong></h4>
+        <p class="text-muted" align="justify">
+        Change is unstoppable. Nationwide change is bold here. Modernizing training methods 
+        by using the more modern technological means has been a choice for us. Having used
+        fast responsive leadership style and taking the institute far distant beyond training,
+            we make skills gained here as ways in changing life of oneself and others.
+        <br>
+        Skills’ training to teachers or industry technicians is a means to simplify way of life.
+        Skillful ones can bake their bread shortly than others. Skills gained from TVT Institute
+            in short or long term training has been designed to change the life of many inside Ethiopia
+            at large and also beyond that. We are working to be example for many other TVET institutes
+            in Ethiopia and Africa in short time.
+            <br>
+            We are working to be example for many other TVET institutes in Ethiopia and Africa in short time.
+            We are not the only change makers. We work with many other regional, national and international
+                organizations to help change the life of many in Ethiopia and beyond. We are very thankful to many 
+                international partners and governments working with us to bring multiple positive changes through
+                skills training and appropriate usage of technology.<br>On course of changing the lives of many, the 
+                Institute is coping with the newly observed change of the nation and the globe. We believe our
+                leadership would bring bigger changes in the lives of many Ethiopians and some foreign brothers
+                and sisters. Our change by giving due focus to skills training, our focus to make many minds 
+                entrepreneurial, our research findings that help the nation shape its policy and our role in
+                    building capacity to leaders in TVET sector of the nation is a cornerstone to changes in TVET
+                    sector and many other walks of life. For more bigger change, let us work together.
+        </p>
+        </div>
+        </div>
+{% endblock about %}

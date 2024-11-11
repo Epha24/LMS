@@ -1,0 +1,53 @@
+{% extends 'library/base.html' %}
+{% block ban %}
+    <h2>CONTACT US</h2>
+    <h5><a href="{% url 'library-index' %}">HOME</a> <i class="fa fa-angle-double-right" aria-hidden="true"></i> <a href="#">CONTACT US</a></h5>
+{% endblock ban %}
+{% block contactus %}
+<h4 class="mb-5 text-center">
+    <strong>Keep in Touch with Us</strong>
+  </h4>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" action="" id="contact">
+        {% csrf_token %}
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        {% if message == True %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style='border-radius : 0px;'>
+            <center><strong> Your message has been sent successfully!</strong></center>
+          </div>
+        {% endif %}
+        <div class="row mb-4">
+          <div class="col">
+            <div class="form-outline" data-mdb-input-init>
+              <input type="text" id="form3Example1" class="form-control" name="fname" />
+              <label class="form-label" for="form3Example1">First name</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline" data-mdb-input-init>
+              <input type="text" id="form3Example2" class="form-control" name="lname" />
+              <label class="form-label" for="form3Example2">Last name</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4" data-mdb-input-init>
+          <input type="email" id="form3Example3" class="form-control" name="email" />
+          <label class="form-label" for="form3Example3">Email address</label>
+        </div>
+        <!-- Email input -->
+        <div class="form-outline mb-4" data-mdb-input-init>
+            <textarea class="form-control" id="form3Example4" name="message" style=" border : none; border-radius : 0px;  border-bottom: 1px solid #bfb6b6"></textarea>
+            <label class="form-label" for="form3Example4">Your Message</label>
+          </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock contactus %}
